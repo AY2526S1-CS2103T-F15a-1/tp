@@ -35,7 +35,8 @@ public class RemarkCommandTest {
         Person expectedPerson = new PersonBuilder(targetPerson).withRemark(newRemark.value).build();
 
         RemarkCommand command = new RemarkCommand(index, newRemark);
-        String expectedMessage = String.format(RemarkCommand.MESSAGE_ADD_REMARK_SUCCESS, Messages.format(expectedPerson));
+        String expectedMessage = String.format(RemarkCommand.MESSAGE_ADD_REMARK_SUCCESS,
+                Messages.format(expectedPerson));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(targetPerson, expectedPerson);
