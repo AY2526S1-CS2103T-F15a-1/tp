@@ -262,14 +262,13 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+* NUS tutors teaching CS mods who want to deal with the contacts of students, tutors and course instructors in a specific course
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
-
+**Value proposition**: proposes an efficient way for TAs to add, modify and access _contact details_ of student, tutors, instructors for a specific course, which makes it more convenient to help students with learning, connect with other TAs and reach out to staff in case of unexpected situations.
 
 ### User stories
 
@@ -277,27 +276,26 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 | Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
 | -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| `* * *`  | tutor                                      | see usage instructions         | refer to instructions when I forget how to use the App                 |
+| `* * *`  | tutor                                      | add new _contacts_ | keep the contact list updated with _contact details_ and _session_ |
+| `* * *`  | tutor                                      | delete _contacts_ by _contact ID_ | remove _contacts_ from the contact list in case they have  |                                
+| `* * *`  | tutor                                      | search contact list by _name_ | locate details of _contacts_ by name without having to go through the entire list |
+| `* * *`  | tutor                                      | search contact list by _contact ID_ | locate details of _contacts_ by _contact ID_ without having to go through the entire list |
+| `* * *`  | tutor                                      | list all _contacts_ from the course | view all _contacts_ and their _contact details_ and _session_ in the contact list |
+| `* * *`  | tutor                                      | list all _contacts_ by _session_ | view all _contacts_ and their _contact details_ in particular session in the contact list |
 
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `TAConnect` program and the **Actor** is the `tutor`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use case: List all contacts in the course**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  Tutor requests to list all users as well as their _contact details_ and _session_ for the particular course
+2.  TAConnect shows a list of all users as well as their _contact details_ and _session_ for the particular course
 
     Use case ends.
 
@@ -307,26 +305,21 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-* 3a. The given index is invalid.
-
-    * 3a1. AddressBook shows an error message.
-
-      Use case resumes at step 2.
-
-*{More to be added}*
-
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+2.  Should be able to handle up to 2500 users and 250 sessions without a noticeable sluggishness in performance for typical usage.
+3.  A tutor with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+
 
 *{More to be added}*
 
 ### Glossary
 
+* **Contact ID**: For students or tutors who are not full-time employees of NUS this is their matriculation number (eg. A01234567X). For tutors or instructors who are full-time employees of NUS, the TAConnect program will assign a contact ID with the format `FTE-{INITIALS}`, so a NUS full-time employee that has a name Betsy Crowe will have the contact ID `FTE-BC`. If multiple contacts have the same initials we will append a number, representing the number of times this initial has been used, in front, so if the contact ID `FTE-BC` already exists and another NUS full-time employee that has a name Bob Charlie is added, the contact ID will be `FTE-BC2`.
+* **Contacts**: The user's name, _contact ID_, email and optionally a Telegram handle.
+* **Contact Detail**: students, tutors, course instructors
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
-* **Private contact detail**: A contact detail that is not meant to be shared with others
 
 --------------------------------------------------------------------------------------------------------------------
 
