@@ -33,7 +33,7 @@ public class Remark {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof Address)) {
+        if (!(other instanceof Remark)) {
             return false;
         }
 

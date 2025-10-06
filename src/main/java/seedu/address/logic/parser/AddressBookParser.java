@@ -45,6 +45,7 @@ public class AddressBookParser {
         }
 
         final String commandWord = matcher.group("commandWord");
+        System.out.println("'" + commandWord + "'");
         final String arguments = matcher.group("arguments");
 
         // Note to developers: Change the log level in config.json to enable lower level (i.e., FINE, FINER and lower)
